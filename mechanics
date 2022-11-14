@@ -201,3 +201,231 @@ So long as the total amount of prey Bellied by you is less than 1/4th your total
 When over normal Belly Capacity, a creature's speed is halved and flying speeds provided via natural means become 0. Flight by magical means is unaffected.
 
 When over Maximum Capacity, creatures have a disadvantage on Athletics, Acrobatics, and Stealth checks as well as Dexterity Saving Throws. Additionally, they take a -2 penalty to AC, and they can use either an action or a bonus action on their turn, not both. Finally, regardless of the creature’s abilities or magic items, it can’t make more than one attack during its turn.
+
+End Version 0.
+Version 1 Begin:
+[h1]Core Mechanisms[/h1]
+Battles & Bellies implements many new rules and mechanics to turn enemies into entrees in D&D. The goal of these mechanics is to create a compelling and easy-to-use implementation of vore in D&D.
+
+[h2]Stomach Capacity[/h2]
+The amount of food you can store in your belly is limited, and its base value is subject to the size of your character and any other applicable modifiers such as magic items or feats. The amount of space a creature takes up is equivalent to its own base stomach capacity.
+
+[h3]Capacity by Size[/h3]
+[table]
+[tr]
+[th]Size[/th]
+[th]Capacity[/th]
+[/tr]
+[tr]
+[td]Fine[/td]
+[td]1/2[/td]
+[/tr]
+[tr]
+[td]Tiny[/td]
+[td]1[/td]
+[/tr]
+[tr]
+[td]Small[/td]
+[td]2[/td]
+[/tr]
+[tr]
+[td]Medium[/td]
+[td]4[/td]
+[/tr]
+[tr]
+[td]Large[/td]
+[td]8[/td]
+[/tr]
+[tr]
+[td]Huge[/td]
+[td]16[/td]
+[/tr]
+[tr]
+[td]Gargantuan[/td]
+[td]32[/td]
+[/tr]
+[tr]
+[td]Colossal[/td]
+[td]64[/td]
+[/tr]
+[tr]
+[td]Colossal+[/td]
+[td]128[/td]
+[/tr]
+[/table]
+[h3]Maximum Capacity[/h3]
+The Maximum Capacity of a creature's belly is twice the listed Belly Capacity.
+
+[h2]Devouring[/h2]
+Any creature may make a [b]Devour[/b] attempt as an Action. In order to do so the creature (now referred to as the [b]Pred[/b]) must be within 5 ft of their target (now referred to as the [b]Prey[/b]) and make a contested check that may only benefit from the following modifiers:
+
+[b]The Pred rolls 1d20 + [Size Difference modifier] + [Stomach Capacity modifier][/b]
+[table]
+[tr]
+[th]Size Difference[/th]
+[th]Modifier[/th]
+[/tr]
+[tr]
+[td]Per size class larger than prey[/td]
+[td]+5[/td]
+[/tr]
+[tr]
+[td]Same Size[/td]
+[td]- 2[/td]
+[/tr]
+[tr]
+[td]Per size class smaller than prey[/td]
+[td]- 5[/td]
+[/tr]
+[/table]
+[table]
+[tr]
+[th]Stomach Capacity[/th]
+[th]Modifier[/th]
+[/tr]
+[tr]
+[td]0 - 100%[/td]
+[td]- 0[/td]
+[/tr]
+[tr]
+[td]> 100%[/td]
+[td]- 2[/td]
+[/tr]
+[tr]
+[td]> 125%[/td]
+[td]- 4[/td]
+[/tr]
+[tr]
+[td]> 150%[/td]
+[td]- 6[/td]
+[/tr]
+[tr]
+[td]> 175%[/td]
+[td]- 8[/td]
+[/tr]
+[/table]
+[b]The Prey rolls 1d20 + [Athletics/Acrobatics modifier] + [HP modifier][/b]
+[br]If the Prey's speed is 0 (via any condition or effect) this roll has disadvantage.
+[table]
+[tr]
+[th]HP %[/th]
+[th]Modifier[/th]
+[/tr]
+[tr]
+[td]1-10[/td]
+[td]-10[/td]
+[/tr]
+[tr]
+[td]11-20[/td]
+[td]-5[/td]
+[/tr]
+[tr]
+[td]21-30[/td]
+[td]+0[/td]
+[/tr]
+[tr]
+[td]31-40[/td]
+[td]+5[/td]
+[/tr]
+[tr]
+[td]41-55[/td]
+[td]+10[/td]
+[/tr]
+[tr]
+[td]56-75[/td]
+[td]+15[/td]
+[/tr]
+[tr]
+[td]76-100[/td]
+[td]+20[/td]
+[/tr]
+[/table]
+If the Pred's roll exceeds the Prey's roll, the Prey is now [b]Bellied [/b]by the Pred.
+
+[h2]Escape[/h2]
+
+Bellied Prey are Restrained, in darkness, and have total cover from creatures and attacks outside of the Pred.
+
+A Prey that has been Bellied by a Pred may use its Action to make an [b]Escape Attempt[/b].
+
+To escape, make an Athletics or Acrobatics check (Prey's choice). The DC for this check is 10 + [Pred Proficiency Bonus] + [Pred Constitution Modifier].
+[br]If they succeed, they will not take digestion damage. However, the Pred simply gulps them back down unless they are suffering from an applicable status condition according to the following table:
+[table]
+[tr]
+[td]Prey rolls with Advantage if Pred is:[/td]
+[td]Restrained, Prone[/td]
+[/tr]
+[tr]
+[td]Escape is possible if Pred is:[/td]
+[td]Stunned, Poisoned, Exhausted[/td]
+[/tr]
+[tr]
+[td]Prey automatically succeeds if Pred is:[/td]
+[td]Unconscious, Paralyzed, Petrified[/td]
+[/tr]
+[/table]
+Other conditions such as Charmed and Frightened may affect a Prey's ability to escape. It is up to the DM to adjudicate these on a case-by-case basis.
+
+If the Prey rolled a natural 20 on their check, they escape regardless of their Pred's conditions.
+
+If a Prey escapes a Pred, they may disengage for free and have half their movement remaining.
+
+[h3]Optional Rule: Multiple Stomachs[/h3]
+Some creatures in your world may have multiple stomachs. If the Prey fails an Escape Attempt by 10 or more OR rolls a natural 1, they are instead drawn further into the creature, finding themselves in a deeper stomach. Any of the Prey's future escape attempts will be to escape back into the previous stomach.
+
+Escaping a deeper stomach does not require the Pred to have any status conditions, but still benefits from any other beneficial effects those conditions may cause.
+
+If the Prey succeeds in returning to the previous stomach, future Escape Attempts function identically to the normal rules listed in "Escape".
+
+If a natural 20 is rolled during an attempt to escape a deeper stomach, the Prey still only escapes their current stomach. However the prey may immediately take another action inside the new stomach they escaped into (such as another Escape Attempt).
+
+If a Pred has more than one deeper stomach, Prey may continue to move deeper based on their Escape Attempt roll while already in a deeper stomach.
+
+[h2]Digestion[/h2]
+
+If the Prey takes any action other than a successful escape attempt, or spends an hour in the Pred's belly without taking an action, they take acid damage. This damage is a number of d10s equal to the Pred's Proficiency Bonus, plus the Pred's Constitution Modifier.
+
+The Pred immediately heals for half of any Acid damage taken by Prey inside their belly.
+
+[h2]Endstage Digestion[/h2]
+The first time each creature hits 0 HP in a Pred's belly, the Pred will immediately gain Temp HP by rolling a number of dice equal to their Proficiency Bonus. The size of those dice depend on your size difference as follows:
+[table]
+[tr]
+[th]Size Difference[/th]
+[th]Dice[/th]
+[/tr]
+[tr]
+[td]4+[/td]
+[td]Do not roll dice, simply gain Temp HP equal to your proficiency bonus[/td]
+[/tr]
+[tr]
+[td]3[/td]
+[td]1d4[/td]
+[/tr]
+[tr]
+[td]2[/td]
+[td]1d6[/td]
+[/tr]
+[tr]
+[td]Same Size[/td]
+[td]1d10[/td]
+[/tr]
+[tr]
+[td]Smaller Pred[/td]
+[td]1d12[/td]
+[/tr]
+[/table]
+When Non-player creatures are reduced to 0 HP in a belly, their body begins deteriorating. When Prey is fully digested, their body is destroyed.
+
+If a Player Character's HP reaches 0 while Bellied, they make death-saving throws as usual. Only once they have marked 3 failures does their body begin to break down.
+
+[h2]Snacks[/h2]
+Defenseless prey creatures that simply rely on their numbers to avoid predation are given the [b]Snack [/b]tag. While you have a size advantage against a [b]Snack[/b] creature, your Devour attempts against it automatically succeed, and you may eat additional [b]Snack [/b]creatures totaling up to your Proficiency Bonus using a single Devour action. [b]Snack [/b]creatures may not make Escape Attempts.
+
+[h2]Belly Bulging[/h2]
+So long as the total amount of Prey Bellied by you is less than 1/4th your total capacity, it is impossible to tell on sight if you have Prey in your belly or not. Close investigation, however, may reveal that you have Bellied Prey.
+
+[h2]Encumbering Appetite[/h2]
+When over normal Belly Capacity, a creature's speed is halved and flying speeds provided via natural means become 0. Flight by magical means is unaffected.
+
+When over Maximum Capacity, creatures have a disadvantage on Athletics, Acrobatics, and Stealth checks as well as Dexterity Saving Throws. Additionally, they take a -2 penalty to AC, and they can use either an Action or a Bonus Action on their turn, not both. Finally, regardless of the creature’s abilities or magic items, it can’t make more than one attack during its turn.
