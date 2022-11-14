@@ -1,1 +1,203 @@
+Version 0 begin:
 
+[h1]Core Mechanisms[/h1]
+Battles & Bellies implements many new rules and mechanics to turn enemies into entrees in D&D. The goal of these mechanics is to create a compelling and easy-to-use implementation of vore in D&D.
+
+[h2]Stomach Capacity[/h2]
+The amount of food you can store in your belly is limited, and its base value is subject to the size of your character and any other applicable modifiers such as magic items or feats. The amount of space a creature takes up is equivalent to its own base stomach capacity.
+
+[h3]Capacity by Size[/h3]
+[table]
+[tr]
+[th]Size[/th]
+[th]Capacity[/th]
+[/tr]
+[tr]
+[td]Fine[/td]
+[td]1/2[/td]
+[/tr]
+[tr]
+[td]Tiny[/td]
+[td]1[/td]
+[/tr]
+[tr]
+[td]Small[/td]
+[td]2[/td]
+[/tr]
+[tr]
+[td]Medium[/td]
+[td]4[/td]
+[/tr]
+[tr]
+[td]Large[/td]
+[td]8[/td]
+[/tr]
+[tr]
+[td]Huge[/td]
+[td]16[/td]
+[/tr]
+[tr]
+[td]Gargantuan[/td]
+[td]32[/td]
+[/tr]
+[tr]
+[td]Colossal[/td]
+[td]64[/td]
+[/tr]
+[tr]
+[td]Colossal+[/td]
+[td]128[/td]
+[/tr]
+[/table]
+[h3]Maximum Capacity[/h3]
+The Maximum Capacity of a creature's belly is twice the listed Belly Capacity.
+
+[h2]Stomach DC[/h2]
+A predator's Stomach DC is 10 + the Pred's Proficiency Modifier and Constitution Modifier.
+
+[h2]Devouring[/h2]
+Any creature may make a [b]Devour[/b] attempt as an Action, or as an included feature with any Weapon or Natural Weapon that has the [b]Devour[/b] property (including Unarmed Strike). In order to do so they must be within 5 ft of their prey and make a contested vore roll against their prey. This roll is a 1d20 plus Strength or Dexterity modifier, adjusted by the Size Difference and optionally the Full Bellies table below.
+
+Bellied prey have a movement speed of 0, are in darkness and have total cover from creatures and attacks from outside of the Predator.
+[h3]Applying Size Difference[/h3]
+Larger Preds have bonuses to their Devour Attempts relative to smaller creatures
+[table]
+[tr]
+[th]Size Difference[/th]
+[th]Modifier[/th]
+[/tr]
+[tr]
+[td]Per size class larger than prey[/td]
+[td]+5[/td]
+[/tr]
+[tr]
+[td]Same Size[/td]
+[td]- 2[/td]
+[/tr]
+[tr]
+[td]Per size class smaller than prey[/td]
+[td]- 5[/td]
+[/tr]
+[/table]
+[h3]Optional Rule: Full Bellies & Devouring[/h3]
+Once a Pred reaches 100% stomach capacity, Devour Attempts toward their Maximum Belly Capacity begin to take increasingly large maluses to represent the difficulty of stuffing additional prey into an already packed stomach.
+[table]
+[tr]
+[th]% Stomach Capacity[/th]
+[th]Modifier[/th]
+[/tr]
+[tr]
+[td]0 - 100%[/td]
+[td]+/- 0[/td]
+[/tr]
+[tr]
+[td]> 100%[/td]
+[td]- 2[/td]
+[/tr]
+[tr]
+[td]> 125%[/td]
+[td]- 4[/td]
+[/tr]
+[tr]
+[td]> 150%[/td]
+[td]- 6[/td]
+[/tr]
+[tr]
+[td]> 175%[/td]
+[td]- 8[/td]
+[/tr]
+[/table]
+[h3]For Prey[/h3]
+Prey may attempt to contest a Devour attempt by rolling a 1d20 plus their Proficiency and their Acrobatics OR Athletics modifier.
+
+If the prey's speed is 0 (via any condition or effect), they have a [b]disadvantage [/b]on their roll.
+If the prey is unconscious or has only 1 HP remaining, they [b]automatically fail[/b] this check.
+
+[h2]Digestion and Escape[/h2]
+A prey that has been Bellied by a pred may use its action to make an Escape Attempt.
+
+To escape, roll a d20 plus your Athletics or Acrobatics modifier versus the Pred's Stomach DC.
+On a success, the Pred is afflicted with the Indigestion status effect until the start of the Prey's next turn. If the Pred already has the Indigestion status effect, the Prey escapes.
+On a Natural 20 (Critical), the prey Escapes and gives the Pred the Indigestion status effect until the end of the Prey's next turn.
+
+If the Prey escapes the Pred's stomach it may disengage for free, and move at one-half its total movement speed.
+
+If the pred is unconscious, any escape attempts automatically succeed.
+
+The prey will also take Acid damage every time they take any action [b]that is not a successful escape attempt[/b] while inside a pred's belly.
+[table]
+[tr]
+[th]Con Mod[/th]
+[th]Acid Damage[/th]
+[/tr]
+[tr]
+[td]0 or Less[/td]
+[td]1d4 + Con[/td]
+[/tr]
+[tr]
+[td]1[/td]
+[td]1d6 + Con[/td]
+[/tr]
+[tr]
+[td]2[/td]
+[td]2d4 + Con[/td]
+[/tr]
+[tr]
+[td]3[/td]
+[td]2d6 + Con[/td]
+[/tr]
+[tr]
+[td]4[/td]
+[td]2d8 + Con[/td]
+[/tr]
+[tr]
+[td]5 or Greater[/td]
+[td]3d6 + Con[/td]
+[/tr]
+[/table]
+Every hour that a Prey is Bellied, the Prey takes 2d6 Acid damage, with an additional 2d6 Acid damage per Constitution Modifier point. The Pred heals for half the damage dealt.
+
+[h3]Optional Rule: Multiple Stomachs[/h3]
+Some creatures in your world may have multiple stomachs. If the Prey fails an Escape Attempt by more than 1/5th of the DC, they are instead drawn further into the creature and into a deeper stomach. Any of the Preys' future escape attempts will be to escape back into the previous stomach.
+
+If the Prey succeeds in returning to the previous stomach, future Escape Attempts function identically to the normal rules listed in "Digestion and Escape".
+
+[h2]Endstage Digestion[/h2]
+While a prey has 0 HP in a pred's belly, the pred will no longer heal from digesting that prey. When Prey is first reduced to 0 HP in a Pred's belly, the pred will immediately gain Temp HP based on their size difference:
+[table]
+[tr]
+[th]Size Difference[/th]
+[th]Temp HP Gained[/th]
+[/tr]
+[tr]
+[td]4+[/td]
+[td]1d4 + Con[/td]
+[/tr]
+[tr]
+[td]3[/td]
+[td]1d6 + Con[/td]
+[/tr]
+[tr]
+[td]2[/td]
+[td]2d4 + Con[/td]
+[/tr]
+[tr]
+[td]Same Size[/td]
+[td]2d6 + Con[/td]
+[/tr]
+[tr]
+[td]Smaller Pred[/td]
+[td]4d4 + Con[/td]
+[/tr]
+[/table]
+When Non-player creatures are reduced to 0 HP in a belly, their body begins deteriorating. When Prey is fully digested, their body is destroyed.
+
+If a Player Character's HP reaches 0 while Bellied, they make death-saving throws as usual. Only once they have marked 3 failures does their body begin to break down.
+
+[h2]Belly Bulging[/h2]
+So long as the total amount of prey Bellied by you is less than 1/4th your total capacity, it is impossible to tell on sight if you have prey in your belly or not. Close investigation, however, may reveal that you have Bellied prey.
+
+[h2]Encumbering Appetite[/h2]
+When over normal Belly Capacity, a creature's speed is halved and flying speeds provided via natural means become 0. Flight by magical means is unaffected.
+
+When over Maximum Capacity, creatures have a disadvantage on Athletics, Acrobatics, and Stealth checks as well as Dexterity Saving Throws. Additionally, they take a -2 penalty to AC, and they can use either an action or a bonus action on their turn, not both. Finally, regardless of the creature’s abilities or magic items, it can’t make more than one attack during its turn.
